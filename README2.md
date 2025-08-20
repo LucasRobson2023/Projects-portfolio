@@ -15,7 +15,6 @@ Chicago crime data analysis
 
 
 
-
 |    | the_geom                     |   AREA_NUMBE | COMMUNITY      |   AREA_NUM_1 | SHAPE_AREA      | SHAPE_LEN      |   Community Area | Community Area Name   |   Below Poverty Level |   Crowded Housing |   Dependency |   No High School Diploma | Per Capita Income   |   Unemployment | geometry                     |
 |---:|:-----------------------------|-------------:|:---------------|-------------:|:----------------|:---------------|-----------------:|:----------------------|----------------------:|------------------:|-------------:|-------------------------:|:--------------------|---------------:|:-----------------------------|
 |  0 | MULTIPOLYGON (((-87.65455... |            1 | ROGERS PARK    |            1 | 51,259,902.4506 | 34,052.3975757 |                1 | Rogers Park           |                  22.7 |               7.9 |         28.8 |                     18.1 | 23,714              |            7.5 | MULTIPOLYGON (((-87.65455... |
@@ -45,7 +44,12 @@ Chicago crime data analysis
 
 <img width="680" height="726" alt="Screenshot 2025-08-20 at 10 00 49" src="https://github.com/user-attachments/assets/5408efb0-4ad3-40c9-ae23-59a8cca18022" />
 
+<img width="665" height="723" alt="Screenshot 2025-08-20 at 10 03 45" src="https://github.com/user-attachments/assets/8e088880-787b-44a4-a706-c8b52ccd246a" />
+
+<img width="680" height="723" alt="Screenshot 2025-08-20 at 10 04 39" src="https://github.com/user-attachments/assets/b2ca403d-9078-45e8-a311-7ec2298e7c2c" />
 
 
+<img width="704" height="706" alt="Screenshot 2025-08-20 at 10 05 05" src="https://github.com/user-attachments/assets/a1561749-12fd-4520-a7ae-9977da287993" />
 
+<img width="664" height="716" alt="Screenshot 2025-08-20 at 10 05 33" src="https://github.com/user-attachments/assets/dc25406c-6bba-4d59-ac1d-59eee453c96f" />
 
