@@ -1,5 +1,12 @@
 Chicago crime data analysis
 
+I am looking at analysising a large dataset (1.1 million records) containing data around crime in Chicago. I chose this because there are plenty of data points to look at and to tie in with other datasets. Some of these other datasets I will look at come from the Chicago Data Portal. This contains information around community areas, demographics and businesses. 
+
+To start off with I looked at the chicago crime data dataset by itself. As this is a huge dataset, querying needs to be smart, considering efficency.
+To start off with I had a look at 'battery' cases after 2020-09-29.
+
+<img width="706" height="230" alt="Screenshot 2025-08-21 at 16 07 45" src="https://github.com/user-attachments/assets/e7cb466c-e934-4b6b-b21e-1dc58c4d89bc" />
+
 |    |   latitude |   longitude | primary_type   | date                      |
 |---:|-----------:|------------:|:---------------|:--------------------------|
 |  0 |    41.8838 |    -87.6262 | BATTERY        | 2021-05-23 00:39:00+00:00 |
@@ -8,7 +15,10 @@ Chicago crime data analysis
 |  3 |    41.8854 |    -87.6263 | BATTERY        | 2021-09-10 21:00:00+00:00 |
 |  4 |    41.8838 |    -87.6262 | BATTERY        | 2023-10-26 16:10:00+00:00 |
 
+I then wanted to map this out, but after doing so I realised that outliers existed within the dataset, causing the map to be shifted outside of Chicago's bounds.
+So to start with I removed outliers based on the latitude and longitude.
 
+This plot shows the result of all of the battery cases across Chicago. However, its quite difficult to see where most of the crime happens and within what communities.
 
 <img width="494" height="556" alt="Screenshot 2025-08-20 at 09 17 42" src="https://github.com/user-attachments/assets/d1742f55-1f8e-4f15-93c5-3009b4f99266" />
 
