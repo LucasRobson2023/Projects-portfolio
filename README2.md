@@ -77,3 +77,61 @@ I then moved onto exploring the demographics in each community, for example the 
 
 <img width="664" height="716" alt="Screenshot 2025-08-20 at 10 05 33" src="https://github.com/user-attachments/assets/dc25406c-6bba-4d59-ac1d-59eee453c96f" />
 
+
+I then wanted to move on to exploring more of the crime dataset, but this time including all of the cases from 2020.
+
+
+This time I wanted to explore location, specifically where the crime happened - as the crime dataset includes information on the surroundings of where the crime happened. As seen below, it provides location descriptions such as 'Abandoned Building' or 'Alley'.
+
+
+
+I then grouped by crime type and summed up for each location, to find the top 5 location for each crime. I used a simple bar plot for this.
+
+
+
+I also wanted to check what crimes were likely to be one incident. To do this I used DBSCAN, providing it both the location and the time. Because of how DBSCAN functions, I converted the latitude and longitude into radians and the time into date time format. 
+This returned clusters across all of the crimes. At first it was clustering too many of the crimes into one, as seen below where crimes which have a 2 hours difference were clustered.
+
+
+I fixed this by ammending the eps (way of identifying two samples of being neighbours).
+
+
+I then had a look at the top pairs of crimes within the clusters. Summing up occurances of the same two crimes across all clusters.
+
+
+
+These clusters were also plotted on the chicago map, to find where these big crimes happened.
+
+
+I then wanted to bring in the businesses dataset to have a look at whether certain business have more crime occuring around them, or less.
+I initially plotted all the businesses on the map with inividual crimes also plotted. This wasn't very useful and only showed concentration of businesses in chicago. 
+
+
+
+To make this more accurate I wanted to cluster businesses and crimes. Rather than using a clustering algorithm, this time I based it upon the spacial location and filtered the crimes based on when they happened, along with when the business first started operating.
+
+
+Once plotted it showed the crimes and the businesses which they were around. However, this doesn't tell me much - other than crimes do happen to certain businesses (but we don't know to which businesses and what sector)
+
+
+
+To start with I wanted to find which businesses had the most reoccuring crimes. I then plotted this on the map, showing a few businesses having a significantly higher occurence. 
+
+
+I also wanted to find what sectors have the most crimes. However, the identifier for this within the database was through 'business activity'. These were manually written descriptions and often included misspellings and similar businesses did not have the same description. 
+
+
+I started of with trying to use regex for word matching into categories. However, this didn't heed the best results, with many of the descriptions having misspellings.
+
+
+Next I attempted to use embeddings and similarity cosine, which would allow me to match strongly linked words within the descriptions and match it to the categories.
+I used Qwen 3.5 0.6 billion parameter model and 4 billion parameter model invidually.
+
+
+
+
+While this did result in better matches, there were still some cases such as McDonalds' descriptions of 'retail of perishable foods' which did not match any of the categories - even after casting a wider net of categories.
+
+
+Instead I tried using SentenceBERT. This finally resulted in better results.
+
