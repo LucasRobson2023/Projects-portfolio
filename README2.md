@@ -87,36 +87,83 @@ This time I wanted to explore location, specifically where the crime happened - 
 
 I then grouped by crime type and summed up for each location, to find the top 5 location for each crime. I used a simple bar plot for this.
 
+<img width="622" height="614" alt="Screenshot 2025-08-22 at 12 04 47" src="https://github.com/user-attachments/assets/caf524a2-7135-4766-b185-dcb10366e73b" />
+
+<img width="655" height="633" alt="Screenshot 2025-08-22 at 12 05 15" src="https://github.com/user-attachments/assets/39720732-b9b1-48eb-b77b-3b60f0e9567e" />
+
+<img width="589" height="499" alt="Screenshot 2025-08-22 at 12 05 59" src="https://github.com/user-attachments/assets/f961b7ae-123a-4f6a-ac32-b12b45c60231" />
 
 
 I also wanted to check what crimes were likely to be one incident. To do this I used DBSCAN, providing it both the location and the time. Because of how DBSCAN functions, I converted the latitude and longitude into radians and the time into date time format. 
 This returned clusters across all of the crimes. At first it was clustering too many of the crimes into one, as seen below where crimes which have a 2 hours difference were clustered.
 
+<img width="653" height="127" alt="Screenshot 2025-08-22 at 12 06 53" src="https://github.com/user-attachments/assets/4e14ddac-4961-4836-b133-0c2399a804b0" />
+
+| latitude | longitude  | date                       | location_description                     | primary_type       |
+|----------|------------|----------------------------|------------------------------------------|--------------------|
+| 842737   | 41.849135  | 2023-10-03 07:00:00+00:00 | APARTMENT                                | DECEPTIVE PRACTICE |
+| 619612   | 41.876466  | 2023-10-03 07:00:00+00:00 | APARTMENT                                | ASSAULT            |
+| 264040   | 41.799683  | 2023-10-03 07:00:00+00:00 | RESIDENCE                                | DECEPTIVE PRACTICE |
+| 792857   | 41.885879  | 2023-10-03 07:00:00+00:00 | PARKING LOT / GARAGE (NON RESIDENTIAL)   | CRIMINAL DAMAGE    |
+| 193735   | 41.722043  | 2023-10-03 07:00:00+00:00 | DRIVEWAY - RESIDENTIAL                   | CRIMINAL DAMAGE    |
+| …        | …          | …                          | …                                        | …                  |
+| 776180   | 41.708033  | 2023-11-28 05:00:00+00:00 | STREET                                   | CRIMINAL DAMAGE    |
+| 731401   | 41.745846  | 2023-11-28 05:00:00+00:00 | COMMERCIAL / BUSINESS OFFICE             | BURGLARY           |
+| 916049   | 41.872274  | 2023-11-28 05:04:00+00:00 | HOSPITAL BUILDING / GROUNDS              | NARCOTICS          |
+| 503604   | 41.955436  | 2023-11-28 05:15:00+00:00 | OTHER (SPECIFY)                          | THEFT              |
+| 965511   | 41.826853  | 2023-11-28 05:20:00+00:00 | ALLEY                                    | ROBBERY            |
+                        
 
 I fixed this by ammending the eps (way of identifying two samples of being neighbours).
 
 
+
 I then had a look at the top pairs of crimes within the clusters. Summing up occurances of the same two crimes across all clusters.
 
+| crime1            | crime2          | count |
+|-------------------|-----------------|-------|
+| BATTERY           | THEFT           | 189   |
+| DECEPTIVE PRACTICE| THEFT           | 181   |
+| CRIMINAL DAMAGE   | THEFT           | 123   |
+| BATTERY           | CRIMINAL DAMAGE | 93    |
+| ASSAULT           | BATTERY         | 85    |
 
 
 These clusters were also plotted on the chicago map, to find where these big crimes happened.
-
+<img width="723" height="728" alt="Screenshot 2025-08-22 at 12 09 46" src="https://github.com/user-attachments/assets/9990777e-5a95-4516-a896-c9c95273a752" />
 
 I then wanted to bring in the businesses dataset to have a look at whether certain business have more crime occuring around them, or less.
 I initially plotted all the businesses on the map with inividual crimes also plotted. This wasn't very useful and only showed concentration of businesses in chicago. 
 
+<img width="630" height="727" alt="Screenshot 2025-08-22 at 12 11 51" src="https://github.com/user-attachments/assets/54c18ea8-864e-45b0-a001-eed87e9410d1" />
 
 
 To make this more accurate I wanted to cluster businesses and crimes. Rather than using a clustering algorithm, this time I based it upon the spacial location and filtered the crimes based on when they happened, along with when the business first started operating.
 
+| primary_type           | LEGAL NAME                                   | date                       | LICENSE TERM START DATE |
+|------------------------|-----------------------------------------------|----------------------------|-------------------------|
+| PUBLIC PEACE VIOLATION | ADUANABA AND COMPANY LLC                      | 2025-06-21 16:40:00+00:00 | 05/27/2025              |
+| PUBLIC PEACE VIOLATION | DE PAUL UNIVERSITY                            | 2025-06-21 16:40:00+00:00 | 05/16/2025              |
+| PUBLIC PEACE VIOLATION | KNL HOLDINGS, INC.                            | 2025-06-21 16:40:00+00:00 | 04/16/2025              |
+| PUBLIC PEACE VIOLATION | BARNES & NOBLE COLLEGE BOOKSELLERS, LLC       | 2025-06-21 16:40:00+00:00 | 04/16/2025              |
+| PUBLIC PEACE VIOLATION | RAMP-D-INC.                                   | 2025-06-21 16:40:00+00:00 | 04/16/2024              |
+| …                      | …                                             | …                          | …                       |
+| WEAPONS VIOLATION      | PREMISE TO PREMISES LLC - GAMERS HALL LLC     | 2025-01-03 19:33:00+00:00 | 07/16/2024              |
+| WEAPONS VIOLATION      | PREMISE TO PREMISES LLC - GAMERS HALL LLC     | 2025-01-03 19:33:00+00:00 | 07/16/2024              |
+| WEAPONS VIOLATION      | EDDY SANTOS FERNANDEZ GONZALEZ                | 2025-01-03 19:33:00+00:00 | 05/06/2024              |
+| WEAPONS VIOLATION      | 3601 W. North, Inc.                           | 2025-01-03 19:33:00+00:00 | 01/16/2024              |
+| WEAPONS VIOLATION      | 3601 W. North, Inc.                           | 2025-01-03 19:33:00+00:00 | 01/16/2024              |
+
+
+
 
 Once plotted it showed the crimes and the businesses which they were around. However, this doesn't tell me much - other than crimes do happen to certain businesses (but we don't know to which businesses and what sector)
 
-
+<img width="440" height="499" alt="Screenshot 2025-08-22 at 12 12 47" src="https://github.com/user-attachments/assets/c0d1b933-5c12-48d2-8f80-ebef44fad2a7" />
 
 To start with I wanted to find which businesses had the most reoccuring crimes. I then plotted this on the map, showing a few businesses having a significantly higher occurence. 
 
+<img width="510" height="517" alt="Screenshot 2025-08-22 at 12 14 05" src="https://github.com/user-attachments/assets/1b1e170e-f041-4889-9105-046eeffef39e" />
 
 I also wanted to find what sectors have the most crimes. However, the identifier for this within the database was through 'business activity'. These were manually written descriptions and often included misspellings and similar businesses did not have the same description. 
 
@@ -134,4 +181,5 @@ While this did result in better matches, there were still some cases such as McD
 
 
 Instead I tried using SentenceBERT. This finally resulted in better results.
+<img width="762" height="448" alt="Screenshot 2025-08-22 at 12 15 11" src="https://github.com/user-attachments/assets/8c40f7ee-bdcc-41ea-95a8-87cbc4f1f011" />
 
