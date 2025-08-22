@@ -22,7 +22,7 @@ This plot shows the result of all of the battery cases across Chicago. However, 
 
 <img width="494" height="556" alt="Screenshot 2025-08-20 at 09 17 42" src="https://github.com/user-attachments/assets/d1742f55-1f8e-4f15-93c5-3009b4f99266" />
 
-
+I started off with merging the communities area dataset with the crimes dataset based on the longitude and latitude. The community area dataset provides multipolygons for each community, which allows us to check whether a specific location (long, lat) is within that area.
 
 
 |    | the_geom                     |   AREA_NUMBE | COMMUNITY      |   AREA_NUM_1 | SHAPE_AREA      | SHAPE_LEN      |   Community Area | Community Area Name   |   Below Poverty Level |   Crowded Housing |   Dependency |   No High School Diploma | Per Capita Income   |   Unemployment | geometry                     |
@@ -33,9 +33,15 @@ This plot shows the result of all of the battery cases across Chicago. However, 
 |  3 | MULTIPOLYGON (((-87.67440... |            4 | LINCOLN SQUARE |            4 | 71,352,328.2399 | 36,624.6030848 |                4 | Lincoln Square        |                   9.5 |               3.1 |         25.6 |                     12.5 | 35,503              |            6.8 | MULTIPOLYGON (((-87.67440... |
 |  4 | MULTIPOLYGON (((-87.67336... |            5 | NORTH CENTER   |            5 | 57,054,167.85   | 31,391.6697542 |                5 | North Center          |                   7.1 |               0.2 |         25.5 |                      5.4 | 51,615              |            4.5 | MULTIPOLYGON (((-87.67336... |
 
-
+Once this is mapped out, it now provides the community area boundaries and names. However, it's still quite difficult to see where it is mostly concentrated.
 
 <img width="578" height="702" alt="Screenshot 2025-08-20 at 09 35 19" src="https://github.com/user-attachments/assets/7d9dcfeb-421d-46cf-b249-d7a2d0cc62cb" />
+
+To make it more clear, I grouped the crimes by community area and summed the crimes for each one. Once plotted this is what it reveals.
+
+<img width="690" height="721" alt="Screenshot 2025-08-20 at 09 58 07" src="https://github.com/user-attachments/assets/9b785418-bcdd-4894-9c49-216c4669b7ec" />
+
+Another dataset I looked at was poverty, and how it affected crime. To do this I firstly merged the previous dataset containing crime count by community area, with the the poverty dataset which was done by community.
 
 |    | COMMUNITY      |   num_crimes |   Below Poverty Level |   Crowded Housing |   Dependency |   No High School Diploma | Per Capita Income   |   Unemployment | geometry                     |
 |---:|:---------------|-------------:|----------------------:|------------------:|-------------:|-------------------------:|:--------------------|---------------:|:-----------------------------|
@@ -46,15 +52,23 @@ This plot shows the result of all of the battery cases across Chicago. However, 
 |  4 | AUBURN GRESHAM |         6320 |                  24.5 |               4.1 |         42.1 |                     19.5 | 16,022              |           24.2 | MULTIPOLYGON (((-87.63990... |
 
 
-<img width="690" height="721" alt="Screenshot 2025-08-20 at 09 58 07" src="https://github.com/user-attachments/assets/9b785418-bcdd-4894-9c49-216c4669b7ec" />
+This allowed me to plot the poverty level by number of crimes, as seen below. However, this graph is not telling the complete truth, as some of these communities are much larger than others, and so will have a much larger crime count.
 
 <img width="784" height="530" alt="Screenshot 2025-08-20 at 09 59 15" src="https://github.com/user-attachments/assets/3338e0ea-a1f3-4b08-80f3-3ff386a90e70" />
 
+To fix this issue, I normalised the crime rate by crime per 1000 people. Once replotted it tells a slightly different story, showing a stronger correlation and highlighting communities where this affects the most. 
+
 <img width="803" height="527" alt="Screenshot 2025-08-20 at 09 59 52" src="https://github.com/user-attachments/assets/c97c4bba-e2c0-4783-a424-f4c6ea7abfa0" />
+
+To explore other details around what might be affecting crime I explored the data by plotting various relevant data onto the chicago map. I firstly continued with finding the community with the worst poverty.
 
 <img width="680" height="726" alt="Screenshot 2025-08-20 at 10 00 49" src="https://github.com/user-attachments/assets/5408efb0-4ad3-40c9-ae23-59a8cca18022" />
 
+I then moved onto exploring the demographics in each community, for example the break down of ages and gender.
+
 <img width="665" height="723" alt="Screenshot 2025-08-20 at 10 03 45" src="https://github.com/user-attachments/assets/8e088880-787b-44a4-a706-c8b52ccd246a" />
+
+
 
 <img width="680" height="723" alt="Screenshot 2025-08-20 at 10 04 39" src="https://github.com/user-attachments/assets/b2ca403d-9078-45e8-a311-7ec2298e7c2c" />
 
