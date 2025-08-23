@@ -204,3 +204,46 @@ This allowed me to create pie charts of all of the communities.
 <img width="487" height="328" alt="Screenshot 2025-08-22 at 13 31 44" src="https://github.com/user-attachments/assets/4698e9c6-a351-4d8d-9400-1a1e41044e2e" />
 
 <img width="542" height="311" alt="Screenshot 2025-08-22 at 13 32 14" src="https://github.com/user-attachments/assets/69ab2fc0-6f37-47bf-bcc4-a89dc1e0c9a1" />
+
+I then wanted to look at some other information about the city, including how much effort the city puts into keeping care of the streets. One dataset which might be useful for this is the Street sweeping schedule. When I downloaded this dataset I realised that it is identified through 'Wards', which are areas owned and managed by certain parties / politicians. 
+My first task was to map Wards onto Community Areas.
+First let's start at looking at the Wards.
+<img width="732" height="723" alt="Screenshot 2025-08-23 at 07 18 35" src="https://github.com/user-attachments/assets/38790951-26af-4076-afaa-133383c90fc5" />
+
+Now lets map the Community Areas onto the Wards.
+As seen here there are lots of intersections, where Wards manage certain parts of Community Areas.
+<img width="654" height="723" alt="Screenshot 2025-08-23 at 07 20 08" src="https://github.com/user-attachments/assets/64b7204d-f2df-471b-88d8-9648c47e17bb" />
+
+This means I should create actual subsections within my dataset to look specifically at these areas.
+
+| the_geom_1                          | AREA_NUMBE | COMMUNITY   | AREA_NUM_1 | SHAPE_AREA      | SHAPE_LEN      | Ward | the_geom_2                          | objectid | edit_date  | globalid                               | st_area_sh     | st_length_    | geometry                           | subsection_id   |
+|-------------------------------------|------------|-------------|------------|-----------------|----------------|------|-------------------------------------|----------|------------|----------------------------------------|----------------|---------------|------------------------------------|----------------|
+| MULTIPOLYGON (((-87.65455 41.99816… | 1          | ROGERS PARK | 1          | 51,259,902.4506 | 34,052.3975757 | 40   | MULTIPOLYGON (((-87.68151 42.00812… | 90       | 06/01/2022 | {EA278E33-45CB-4D28-BEE1-F64C155E65B9} | 96,644,837.543 | 67,854.2550788 | MULTIPOLYGON (((-87.67069 41.99807… | W40_ROGERSPARK |
+| MULTIPOLYGON (((-87.65455 41.99816… | 1          | ROGERS PARK | 1          | 51,259,902.4506 | 34,052.3975757 | 48   | MULTIPOLYGON (((-87.64429 41.96989… | 98       | 06/01/2022 | {174DEC8E-5281-4774-831E-A7E0F6F3440D} | 45,008,904.9322 | 35,618.1253927 | MULTIPOLYGON (((-87.65574 41.99818… | W48_ROGERSPARK |
+| MULTIPOLYGON (((-87.65455 41.99816… | 1          | ROGERS PARK | 1          | 51,259,902.4506 | 34,052.3975757 | 49   | MULTIPOLYGON (((-87.65728 42.00418… | 99       | 06/01/2022 | {F7B2FFFC-D9B6-463F-BFF0-8C5C2ED72D47} | 50,883,633.0233 | 37,398.3599515 | POLYGON ((-87.65636 41.99823…       | W49_ROGERSPARK |
+| MULTIPOLYGON (((-87.65455 41.99816… | 1          | ROGERS PARK | 1          | 51,259,902.4506 | 34,052.3975757 | 50   | MULTIPOLYGON (((-87.68189 42.00896… | 100      | 06/01/2022 | {C4F10402-10E2-4401-BD4D-7FBDAF35E3FC} | 74,504,794.8307 | 60,789.2195089 | MULTIPOLYGON (((-87.67690 41.99811… | W50_ROGERSPARK |
+| MULTIPOLYGON (((-87.68465 42.01948… | 2          | WEST RIDGE  | 2          | 98,429,094.8621 | 43,020.6894583 | 39   | MULTIPOLYGON (((-87.69915 41.98312… | 89       | 06/01/2022 | {15480A27-2480-40CF-91EC-72B090F03522} | 181,867,168.378 | 77,704.7574871 | MULTIPOLYGON (((-87.69916 41.98312… | W39_WESTRIDGE  |
+| …                                   | …          | …           | …          | …               | …              | …    | …                                   | …        | …          | …                                      | …              | …             | …                                  | …              |
+| MULTIPOLYGON (((-87.83658 41.98639… | 76         | OHARE       | 76         | 371,835,607.687 | 173,625.98466  | 41   | MULTIPOLYGON (((-87.79064 42.00039… | 91       | 06/01/2022 | {C885247A-E064-4FCF-A35A-747DEC142421} | 475,496,714.35 | 218,605.417697 | MULTIPOLYGON (((-87.83658 41.98613… | W41_OHARE      |
+| MULTIPOLYGON (((-87.65455 41.99816… | 77         | EDGEWATER   | 77         | 48,449,990.8397 | 31,004.8309456 | 40   | MULTIPOLYGON (((-87.68151 42.00812… | 90       | 06/01/2022 | {EA278E33-45CB-4D28-BEE1-F64C155E65B9} | 96,644,837.543 | 67,854.2550788 | POLYGON ((-87.66842 41.97619…       | W40_EDGEWATER  |
+| MULTIPOLYGON (((-87.65455 41.99816… | 77         | EDGEWATER   | 77         | 48,449,990.8397 | 31,004.8309456 | 47   | MULTIPOLYGON (((-87.65978 41.97332… | 97       | 06/01/2022 | {4F17B913-08A1-4EF6-BF20-0EF4B6478494} | 84,810,290.7941 | 55,157.0082474 | MULTIPOLYGON (((-87.65987 41.97632… | W47_EDGEWATER  |
+| MULTIPOLYGON (((-87.65455 41.99816… | 77         | EDGEWATER   | 77         | 48,449,990.8397 | 31,004.8309456 | 48   | MULTIPOLYGON (((-87.64429 41.96989… | 98       | 06/01/2022 | {174DEC8E-5281-4774-831E-A7E0F6F3440D} | 45,008,904.9322 | 35,618.1253927 | POLYGON ((-87.65456 41.99817…       | W48_EDGEWATER  |
+| MULTIPOLYGON (((-87.65455 41.99816… | 77         | EDGEWATER   | 77         | 48,449,990.8397 | 31,004.8309456 | 49   | MULTIPOLYGON (((-87.65728 42.00418… | 99       | 06/01/2022 | {F7B2FFFC-D9B6-463F-BFF0-8C5C2ED72D47} | 50,883,633.0233 | 37,398.3599515 | MULTIPOLYGON (((-87.65636 41.99823… | W49_EDGEWATER  |
+
+This can be joined with the crimes now, based on the longitude and latitude.
+
+| latitude  | longitude  | location_description                        | primary_type                    | date                      | geometry                   | index_right | AREA_NUMBE | COMMUNITY       | Ward | subsection_id     |
+|-----------|------------|---------------------------------------------|---------------------------------|---------------------------|----------------------------|-------------|------------|-----------------|------|------------------|
+| 41.877687 | -87.627665 | CTA STATION                                | PUBLIC PEACE VIOLATION          | 2025-06-21 16:40:00+00:00 | POINT (-87.62767 41.87769) | 145         | 32         | LOOP            | 4    | W4_LOOP          |
+| 41.876982 | -87.625624 | APARTMENT                                  | INTIMIDATION                    | 2025-02-28 19:48:00+00:00 | POINT (-87.62562 41.87698) | 147         | 32         | LOOP            | 34   | W34_LOOP         |
+| 41.885702 | -87.642032 | CTA PARKING LOT / GARAGE / OTHER PROPERTY  | PUBLIC PEACE VIOLATION          | 2025-02-16 09:12:00+00:00 | POINT (-87.64203 41.88570) | 128         | 28         | NEAR WEST SIDE  | 34   | W34_NEARWESTSIDE |
+| 41.885741 | -87.631712 | CTA PLATFORM                               | INTERFERENCE WITH PUBLIC OFFICER| 2025-04-27 13:59:00+00:00 | POINT (-87.63171 41.88574) | 148         | 32         | LOOP            | 42   | W42_LOOP         |
+| 41.868165 | -87.627440 | CTA PLATFORM                               | INTERFERENCE WITH PUBLIC OFFICER| 2025-06-25 07:45:00+00:00 | POINT (-87.62744 41.86817) | 145         | 32         | LOOP            | 4    | W4_LOOP          |
+| ...       | ...        | ...                                         | ...                             | ...                       | ...                        | ...         | ...        | ...             | ...  | ...              |
+| 41.924494 | -87.725891 | STREET                                     | WEAPONS VIOLATION               | 2025-02-21 22:48:00+00:00 | POINT (-87.72589 41.92449) | 98          | 22         | LOGAN SQUARE    | 35   | W35_LOGANSQUARE  |
+| 41.909443 | -87.760174 | VEHICLE NON-COMMERCIAL                     | WEAPONS VIOLATION               | 2025-03-04 23:04:00+00:00 | POINT (-87.76017 41.90944) | 115         | 25         | AUSTIN          | 37   | W37_AUSTIN       |
+| 41.909422 | -87.762026 | ALLEY                                      | WEAPONS VIOLATION               | 2024-10-15 16:18:00+00:00 | POINT (-87.76203 41.90942) | 115         | 25         | AUSTIN          | 37   | W37_AUSTIN       |
+| 41.908671 | -87.753469 | STREET                                     | WEAPONS VIOLATION               | 2025-05-26 19:56:00+00:00 | POINT (-87.75347 41.90867) | 115         | 25         | AUSTIN          | 37   | W37_AUSTIN       |
+| 41.909492 | -87.716771 | STREET                                     | WEAPONS VIOLATION               | 2025-01-03 19:33:00+00:00 | POINT (-87.71677 41.90949) | 99          | 23         | HUMBOLDT PARK   | 26   | W26_HUMBOLDTPARK |
+
+<img width="1825" height="2393" alt="image" src="https://github.com/user-attachments/assets/b3850ef3-b82e-4e2e-8315-d8b32447966a" />
