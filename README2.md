@@ -208,10 +208,13 @@ This allowed me to create pie charts of all of the communities.
 I then wanted to look at some other information about the city, including how much effort the city puts into keeping care of the streets. One dataset which might be useful for this is the Street sweeping schedule. When I downloaded this dataset I realised that it is identified through 'Wards', which are areas owned and managed by certain parties / politicians. 
 My first task was to map Wards onto Community Areas.
 First let's start at looking at the Wards.
+
+
 <img width="732" height="723" alt="Screenshot 2025-08-23 at 07 18 35" src="https://github.com/user-attachments/assets/38790951-26af-4076-afaa-133383c90fc5" />
 
 Now lets map the Community Areas onto the Wards.
 As seen here there are lots of intersections, where Wards manage certain parts of Community Areas.
+
 <img width="654" height="723" alt="Screenshot 2025-08-23 at 07 20 08" src="https://github.com/user-attachments/assets/64b7204d-f2df-471b-88d8-9648c47e17bb" />
 
 This means I should create actual subsections within my dataset to look specifically at these areas.
@@ -246,4 +249,4 @@ This can be joined with the crimes now, based on the longitude and latitude.
 | 41.908671 | -87.753469 | STREET                                     | WEAPONS VIOLATION               | 2025-05-26 19:56:00+00:00 | POINT (-87.75347 41.90867) | 115         | 25         | AUSTIN          | 37   | W37_AUSTIN       |
 | 41.909492 | -87.716771 | STREET                                     | WEAPONS VIOLATION               | 2025-01-03 19:33:00+00:00 | POINT (-87.71677 41.90949) | 99          | 23         | HUMBOLDT PARK   | 26   | W26_HUMBOLDTPARK |
 
-<img width="1825" height="2393" alt="image" src="https://github.com/user-attachments/assets/b3850ef3-b82e-4e2e-8315-d8b32447966a" />
+<img width="1369" height="1795" alt="image" src="https://github.com/user-attachments/assets/b3850ef3-b82e-4e2e-8315-d8b32447966a" />
