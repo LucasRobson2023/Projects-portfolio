@@ -179,6 +179,8 @@ I used Qwen 3.5 0.6 billion parameter model and 4 billion parameter model invidu
 
 While this did result in better matches, there were still some cases such as McDonalds' descriptions of 'retail of perishable foods' which did not match any of the categories - even after casting a wider net of categories.
 
+<img width="452" height="225" alt="image" src="https://github.com/user-attachments/assets/69a23927-d5f3-41ec-ac51-dc9cc89d4596" />
+
 
 Instead I tried using SentenceBERT. This finally resulted in better results.
 <img width="762" height="448" alt="Screenshot 2025-08-22 at 12 15 11" src="https://github.com/user-attachments/assets/8c40f7ee-bdcc-41ea-95a8-87cbc4f1f011" />
