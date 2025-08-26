@@ -249,7 +249,11 @@ This can be joined with the crimes now, based on the longitude and latitude.
 | 41.908671 | -87.753469 | STREET                                     | WEAPONS VIOLATION               | 2025-05-26 19:56:00+00:00 | POINT (-87.75347 41.90867) | 115         | 25         | AUSTIN          | 37   | W37_AUSTIN       |
 | 41.909492 | -87.716771 | STREET                                     | WEAPONS VIOLATION               | 2025-01-03 19:33:00+00:00 | POINT (-87.71677 41.90949) | 99          | 23         | HUMBOLDT PARK   | 26   | W26_HUMBOLDTPARK |
 
+Just to check how the crime looks with the new areas mapped out, I created a heatmap.
+
 <img width="1369" height="1795" alt="image" src="https://github.com/user-attachments/assets/b3850ef3-b82e-4e2e-8315-d8b32447966a" />
+
+Returning back to the sweeping schedule dataset, I wanted to see if there was any correlation with areas not being cleaned and crime. To do this I had a look at the following dataframe. It includes the Ward and the Section, along with all the Months and days within it which sweeping occurs.
 
 | the_geom | WARD | WARD_ID | SECTION | SECTION_ID | WARD_SECTION | DISTRICT | APRIL | MAY  | JUNE | JULY | AUGUST | SEPTEMBER | OCTOBER | NOVEMBER | GLOBALID | Shape_Area      | Shape_Length     |
 |----------|------|---------|---------|------------|--------------|----------|-------|------|------|------|--------|-----------|---------|----------|----------|----------------|----------------|
@@ -260,11 +264,16 @@ This can be joined with the crimes now, based on the longitude and latitude.
 | MULTIPOLYGON (...) | 8    | 8       | 19      | 19         | 0819         | D8       | NaN   | 21,22 | NaN  | 29,30 | NaN    | NaN       | 2,3     | NaN      | {1AAF1F3E-00D5-4BF8-A8BB-A6F9360AB5A9} | 7,041,496.09302 | 10,615.4403302 |
 
 
+Before looking at correlations, I mapped out the sections within the earlier intersections I created to see where they are located.
 
 <img width="470" height="549" alt="Screenshot 2025-08-26 at 14 19 05" src="https://github.com/user-attachments/assets/35fa5078-adf8-4a5f-a50c-bedcea0c737c" />
 
+To make use of this I firstly looked at whether there was any correlation between the number of days sweeping occurs accross the whole year, and plotted against the crime rate. As seen below, there is no strong correlation between the two variables.
+
 <img width="314" height="223" alt="Screenshot 2025-08-26 at 14 19 29" src="https://github.com/user-attachments/assets/88912eb1-d6d9-4ace-9801-2d13d7377fbd" />
 
+I then moved over to looking at the correlation between whether the month made any difference, as some of the sections were not sweeped during certain months, while others were. I used a box plot for this, as it shows the outliers in the crime counts.
+However, this also did not show anything clear - certainly not that sweeping reduces crimes, as it almost shows that it does have an effect on increasing crime! (Only marginal difference, which probably means it does not and there are underlying factors)
 
 <img width="838" height="292" alt="Screenshot 2025-08-26 at 14 20 41" src="https://github.com/user-attachments/assets/4a459af1-a9df-45e2-8694-2de4860430a4" />
 
