@@ -250,3 +250,23 @@ This can be joined with the crimes now, based on the longitude and latitude.
 | 41.909492 | -87.716771 | STREET                                     | WEAPONS VIOLATION               | 2025-01-03 19:33:00+00:00 | POINT (-87.71677 41.90949) | 99          | 23         | HUMBOLDT PARK   | 26   | W26_HUMBOLDTPARK |
 
 <img width="1369" height="1795" alt="image" src="https://github.com/user-attachments/assets/b3850ef3-b82e-4e2e-8315-d8b32447966a" />
+
+| the_geom | WARD | WARD_ID | SECTION | SECTION_ID | WARD_SECTION | DISTRICT | APRIL | MAY  | JUNE | JULY | AUGUST | SEPTEMBER | OCTOBER | NOVEMBER | GLOBALID | Shape_Area      | Shape_Length     |
+|----------|------|---------|---------|------------|--------------|----------|-------|------|------|------|--------|-----------|---------|----------|----------|----------------|----------------|
+| MULTIPOLYGON (...) | 8    | 8       | 16      | 16         | 0816         | D8       | NaN   | 13,14 | NaN  | 21,22 | NaN    | 24,25     | NaN     | NaN      | {77BD6018-7E08-4469-917D-D1AB5A90C28F} | 4,921,705.77788 | 9,117.00076505 |
+| MULTIPOLYGON (...) | 8    | 8       | 21      | 21         | 0821         | D8       | NaN   | 28,29 | NaN  | NaN   | 4,5    | NaN       | 8,9     | NaN      | {A5E27132-CB10-4702-ACE7-0C656A0FC942} | 4,138,452.48167 | 9,425.00540717 |
+| MULTIPOLYGON (...) | 6    | 6       | 12      | 12         | 0612         | D7       | NaN   | 1,2   | NaN  | 21,22 | NaN    | NaN       | 6,7     | NaN      | {0F7E6793-D281-4107-92B9-495080997974} | 4,595,114.68657 | 8,776.54523881 |
+| MULTIPOLYGON (...) | 8    | 8       | 20      | 20         | 0820         | D8       | NaN   | 23,27 | NaN  | 31    | 1      | NaN       | 6,7     | NaN      | {75EB0BCD-235D-49DF-935C-2F1E1AA44BA1} | 11,303,891.9023 | 14,114.2358839 |
+| MULTIPOLYGON (...) | 8    | 8       | 19      | 19         | 0819         | D8       | NaN   | 21,22 | NaN  | 29,30 | NaN    | NaN       | 2,3     | NaN      | {1AAF1F3E-00D5-4BF8-A8BB-A6F9360AB5A9} | 7,041,496.09302 | 10,615.4403302 |
+
+
+
+<img width="470" height="549" alt="Screenshot 2025-08-26 at 14 19 05" src="https://github.com/user-attachments/assets/35fa5078-adf8-4a5f-a50c-bedcea0c737c" />
+
+<img width="314" height="223" alt="Screenshot 2025-08-26 at 14 19 29" src="https://github.com/user-attachments/assets/88912eb1-d6d9-4ace-9801-2d13d7377fbd" />
+
+
+<img width="838" height="292" alt="Screenshot 2025-08-26 at 14 20 41" src="https://github.com/user-attachments/assets/4a459af1-a9df-45e2-8694-2de4860430a4" />
+
+
+
