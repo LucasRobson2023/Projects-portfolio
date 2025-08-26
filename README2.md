@@ -1,5 +1,5 @@
-Chicago crime data analysis ==============
-
+Chicago crime data analysis 
+===========================
 I am looking at analysising a large dataset (1.1 million records) containing data around crime in Chicago. I chose this because there are plenty of data points to look at and to tie in with other datasets. Some of these other datasets I will look at come from the Chicago Data Portal. This contains information around community areas, demographics and businesses. 
 
 To start off with I looked at the chicago crime data dataset by itself. As this is a huge dataset, querying needs to be smart, considering efficency.
