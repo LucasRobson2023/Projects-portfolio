@@ -19,4 +19,4 @@ project also identifies significant challenges, particularly around prompt injec
 reliability, emphasising the need for robust control mechanisms to ensure consistent task alignment
 and system safety.
 
-To continue reading please find the attached PDF.
+To continue reading please click here: Agentic workflow for phishing detection.pdf
