@@ -19,4 +19,4 @@ project also identifies significant challenges, particularly around prompt injec
 reliability, emphasising the need for robust control mechanisms to ensure consistent task alignment
 and system safety.
 
-To continue reading please click here: Agentic workflow for phishing detection.pdf
+To continue reading please click here: [Agentic workflow for phishing detection.pdf](https://github.com/LucasRobson2023/Projects-portfolio/blob/e680c2a69e9a7815351ddb7d9df51be2b0f13b9a/Agentic%20workflow%20for%20phishing%20detection.pdf)
